@@ -1,0 +1,56 @@
+<apex:page showHeader="false" sidebar="false" controller="AccountController">
+
+    <apex:slds /> 
+
+    <apex:includeScript value="{! $Resource.vue_js }"/>
+
+    <html xmlns:v-bind="http://vue.org" xmlns:v-on="http://vue.org">
+        <body>
+            <h1>取引先一覧</h1>
+            <div id="vueApp">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                <div>ID</div>
+                            </th>
+                            <th>
+                                <div>取引先名</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="account in accounts">
+                            <td>
+                                <div class="slds-truncate">{{ account.Id }}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate">{{ account.Name }}</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <script>
+             const app = new Vue({
+                 el: '#vueApp',
+                 data: {
+                     accounts: []
+                 },
+                 beforeMount: function() {
+                     this.getAccounts((result, event) => this.accounts = result);
+                 },
+                 methods: {
+                     getAccounts: function(callback) {
+                         Visualforce.remoting.Manager.invokeAction(
+                             "{!$RemoteAction.AccountController.getAccounts}",
+                             (result, event) => callback(result, event)
+                         );
+                     },
+                 }
+             });
+            </script>
+        </body>
+    </html>
+
+</apex:page>
