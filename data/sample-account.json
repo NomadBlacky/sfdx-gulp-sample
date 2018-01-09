@@ -1,0 +1,39 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "account01"
+            },
+            "name": "サンプル取引先01"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "account02"
+            },
+            "name": "サンプル取引先02"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "account03"
+            },
+            "name": "サンプル取引先03"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "account04"
+            },
+            "name": "サンプル取引先04"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "account05"
+            },
+            "name": "サンプル取引先05"
+        }
+    ]
+}
