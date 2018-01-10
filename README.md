@@ -1,14 +1,19 @@
-# SFDX  App
+# sfdx-gulp-sample
 
-## Dev, Build and Test
+- Thanks!
+  - https://github.com/leboff/scriptingdx-dreamhouse
 
+## Setup
 
-## Resources
+```shell-session
+$ npm install -g yarn gulp
+$ yarn install
+$ gulp auth
+$ gulp init
+```
 
+## Auto push and pull
 
-## Description of Files and Directories
-
-
-## Issues
-
-
+```shell-session
+$ gulp watch
+```
