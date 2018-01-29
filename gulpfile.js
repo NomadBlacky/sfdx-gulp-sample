@@ -1,8 +1,9 @@
-const gulp     = require("gulp");
-const fancyLog = require("fancy-log");
-const sfdx     = require("sfdx-node");
-const runSeq   = require("run-sequence");
-const notifier = require("node-notifier");
+const gulp        = require("gulp");
+const PluginError = require("plugin-error");
+const fancyLog    = require("fancy-log");
+const sfdx        = require("sfdx-node");
+const runSeq      = require("run-sequence");
+const notifier    = require("node-notifier");
 
 // gulp.task('css', function () {
 //     let postcss    = require('gulp-postcss');
@@ -119,7 +120,7 @@ const runTests = () => {
         'quiet': false
     }).then(function(results){
         if(results.summary.outcome !== 'Passed') {
-            throw new gulputil.PluginError('Test Run', {
+            throw new PluginError('Test Run', {
                 message: 'Tests are failing'
             });
         }
@@ -151,4 +152,3 @@ const pollPull = () => {
         setTimeout(pollPull, 10000);
     });
 };
-
